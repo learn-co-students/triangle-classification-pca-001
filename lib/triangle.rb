@@ -10,12 +10,10 @@ class Triangle
   end
 
   def kind
-    raise TriangleError if valid? != true
-    else
-      return :equilateral if equilateral?
-      return :isosceles if isosceles?
-      return :scalene if scalene?
-    end
+    raise TriangleError unless valid?
+    return :equilateral if equilateral?
+    return :isosceles if isosceles?
+    return :scalene if scalene?
   end
 
   def equilateral?
@@ -35,7 +33,7 @@ class Triangle
   end
 
   def inequality?
-    (@side1 + @side2) > @side3 && (@side1 + @side3) > @side2 && (@side2 + @side3) > @side1
+    @side1 + @side2 > @side3 && @side1 + @side3 > @side2 && @side2 + @side3 > @side1
   end
 
   class TriangleError < StandardError
