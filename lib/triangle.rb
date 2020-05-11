@@ -10,8 +10,7 @@ class Triangle
   end
 
   def kind
-    if valid? != true
-      raise TriangleError
+    raise TriangleError if valid? != true
     else
       return :equilateral if equilateral?
       return :isosceles if isosceles?
